@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Слот за УСПЕХ</title>
+  <style>
+    body {
+      background: linear-gradient(to bottom, #111, #222);
+      color: gold;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    .slot {
+      font-size: 80px;
+      margin: 30px 0;
+    }
+    button {
+      font-size: 24px;
+      padding: 10px 30px;
+      background: gold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      color: #111;
+      font-weight: bold;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 28px;
+      color: #0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎰 Слот за <span style="color: #FFD700;">УСПЕХ</span></h1>
+  <div class="slot" id="slot">💰 💎 🏆</div>
+  <button onclick="spin()">Завърти</button>
+  <p id="result"></p>
+
+  <script>
+    const symbols = ["💰", "💎", "🏆", "🔥", "📈", "👑"];
+    function spin() {
+      const s1 = symbols[Math.floor(Math.random() * symbols.length)];
+      const s2 = symbols[Math.floor(Math.random() * symbols.length)];
+      const s3 = symbols[Math.floor(Math.random() * symbols.length)];
+      document.getElementById("slot").textContent = `${s1} ${s2} ${s3}`;
+      document.getElementById("result").textContent =
+        (s1 === s2 && s2 === s3)
+          ? "🎉 Джакпот! Ти си роден за успех!"
+          : "Опитай пак – късметът идва!";
+    }
+  </script>
+</body>
+</html>
